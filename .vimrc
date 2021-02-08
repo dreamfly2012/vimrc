@@ -32,7 +32,8 @@ set wildmode=longest:list,full " show recommend command you can use tab
 
 set autoread " when other file change the file ,it will tell you
 
-set nobackup " 覆盖文件时不备份
+set nobackup 
+
 
 set autochdir " 自动切换当前目录为当前文件所在的目录
 
@@ -44,22 +45,22 @@ set backupcopy=yes
 
 set ignorecase smartcase 
 
-set nowrapscan " 禁止在搜索到文件两端时重新搜索
+set nowrapscan 
 
-set incsearch " 输入搜索内容时就显示搜索结果
+set incsearch 
 
-set hlsearch " 搜索时高亮显示被找到的文本
+set hlsearch
 
-set noerrorbells " 关闭错误信息响铃
+set noerrorbells 
 
 set novisualbell " 关闭使用可视响铃代替呼叫
 set magic 
 
 set hidden 
 
-set guioptions-=T " 隐藏工具栏
+set guioptions-=T 
 
-set guioptions-=m " 隐藏菜单栏
+set guioptions-=m 
 
 set smartindent 
 
@@ -83,10 +84,13 @@ if has("autocmd")
     autocmd! bufwritepost vimrc source $MYVIMRC
 endif
 
-" 选中状态下 Ctrl+c 复制
-
 vmap <C-c> "+y
 vmap <C-v> "+p
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+nnoremap <C-F> :Files<CR>
 
 " auto load bundle and bundle plugin
 
@@ -105,4 +109,12 @@ endif
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'prabirshrestha/vim-lsp'
+Plugin 'mattn/vim-lsp-settings'
+Plugin 'prabirshrestha/asyncomplete.vim'
+Plugin 'prabirshrestha/asyncomplete-lsp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'Yggdroot/LeaderF'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
