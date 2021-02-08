@@ -53,7 +53,7 @@ set hlsearch
 
 set noerrorbells 
 
-set novisualbell " 关闭使用可视响铃代替呼叫
+set novisualbell  
 set magic 
 
 set hidden 
@@ -92,7 +92,6 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 nnoremap <C-F> :Files<CR>
 
-" auto load bundle and bundle plugin
 
 
 
@@ -118,3 +117,6 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'Yggdroot/LeaderF'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'fatih/vim-go'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
