@@ -22,8 +22,6 @@ set expandtab
 
 set scrolloff=15 
 
-set spell spelllang=en_us
-
 set history=1000 " record history nums
 
 set wildmenu
@@ -34,12 +32,9 @@ set autoread " when other file change the file ,it will tell you
 
 set nobackup 
 
+filetype plugin indent on 
 
-set autochdir " 自动切换当前目录为当前文件所在的目录
-
-filetype plugin indent on " 开启插件
-
-filetype indent on " set indent base on filetype such as .py
+filetype indent on 
 
 set backupcopy=yes 
 
@@ -91,12 +86,22 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 nnoremap <C-F> :Files<CR>
+inoremap jk  <ESC>
 
+let g:go_fmt_command="goimports"
+
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
 
 
 
 let hasVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+
+
 if !filereadable(vundle_readme)
     echo "Installing Vundle..."
     echo ""
