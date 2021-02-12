@@ -82,10 +82,9 @@ endif
 vmap <C-c> "+y
 vmap <C-v> "+p
 nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-nnoremap <C-F> :Files<CR>
+nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
 inoremap jk  <ESC>
 
 let g:go_fmt_command="goimports"
@@ -97,6 +96,18 @@ let g:go_highlight_extra_types = 1
 let g:go_highlight_operators = 1
 
 
+
+let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
+:nn <M-1> 1gt
+:nn <M-2> 2gt
+:nn <M-3> 3gt
+:nn <M-4> 4gt
+:nn <M-5> 5gt
+:nn <M-6> 6gt
+:nn <M-7> 7gt
+:nn <M-8> 8gt
+:nn <M-9> 9gt
+:nn <M-0> :tablast<CR>
 
 let hasVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
@@ -123,5 +134,12 @@ Plugin 'Yggdroot/LeaderF'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'fatih/vim-go'
+Plugin 'dgryski/vim-godef'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'puremourning/vimspector'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'majutsushi/tagbar'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'iamcco/mathjax-support-for-mkdp'
+Plugin 'iamcco/markdown-preview.vim'
