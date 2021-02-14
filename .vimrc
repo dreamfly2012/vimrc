@@ -86,9 +86,16 @@ nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 inoremap jk  <ESC>
-
+" for normal mode
+nmap <silent> <C-F8> <Plug>MarkdownPreview
+" for insert mode
+imap <silent> <C-F8> <Plug>MarkdownPreview
+" for normal mode
+nmap <silent> <C-F9> <Plug>StopMarkdownPreview
+" for insert mode
+imap <silent> <C-F9> <Plug>StopMarkdownPreview
+vnoremap <C-y> "+y
 let g:go_fmt_command="goimports"
-
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
