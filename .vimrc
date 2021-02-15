@@ -95,6 +95,26 @@ nmap <silent> <C-F9> <Plug>StopMarkdownPreview
 " for insert mode
 imap <silent> <C-F9> <Plug>StopMarkdownPreview
 vnoremap <C-y> "+y
+nnoremap <C-f> :FZF<CR>
+
+"php autoimport
+
+set tags+=tags,tags.vendors
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
+endfunction
+autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+
+function! IPhpExpandClass()
+    call PhpExpandClass()
+    call feedkeys('a', 'n')
+endfunction
+autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
+autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+
+
 let g:go_fmt_command="goimports"
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
@@ -103,7 +123,7 @@ let g:go_highlight_extra_types = 1
 let g:go_highlight_operators = 1
 
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
-
+let g:lsp_diagnostics_echo_cursor = 1
 let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
 :nn <M-1> 1gt
 :nn <M-2> 2gt
@@ -122,6 +142,13 @@ highlight GitGutterChange guifg=#bbbb00 ctermfg=3
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 
 let g:gitgutter_enabled = 1
+let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
+" Tab completion
+imap <c-space> <Plug>(asyncomplete_force_refresh)
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 "let g:gitgutter_sign_added = '+'
 "let g:gitgutter_sign_modified = 'yy'
 "let g:gitgutter_sign_removed = 'zz'
@@ -164,3 +191,5 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'iamcco/mathjax-support-for-mkdp'
 Plugin 'iamcco/markdown-preview.vim'
 Plugin 'tpope/vim-surround'
+Plugin 'arnaud-lb/vim-php-namespace'
+Plugin 'craigemery/vim-autotag'
