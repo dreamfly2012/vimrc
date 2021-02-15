@@ -85,10 +85,10 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+nnoremap J 10j
+nnoremap K 10k
 inoremap jk  <ESC>
-" for normal mode
 nmap <silent> <C-F8> <Plug>MarkdownPreview
-" for insert mode
 imap <silent> <C-F8> <Plug>MarkdownPreview
 " for normal mode
 nmap <silent> <C-F9> <Plug>StopMarkdownPreview
@@ -115,6 +115,19 @@ let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
 :nn <M-8> 8gt
 :nn <M-9> 9gt
 :nn <M-0> :tablast<CR>
+
+"gitgutter 
+highlight GitGutterAdd    guifg=#009900 ctermfg=2
+highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+
+let g:gitgutter_enabled = 1
+"let g:gitgutter_sign_added = '+'
+"let g:gitgutter_sign_modified = 'yy'
+"let g:gitgutter_sign_removed = 'zz'
+"let g:gitgutter_sign_removed_first_line = '^^'
+"let g:gitgutter_sign_removed_above_and_below = '{'
+"let g:gitgutter_sign_modified_removed = 'ww'
 
 let hasVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
@@ -150,3 +163,4 @@ Plugin 'majutsushi/tagbar'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'iamcco/mathjax-support-for-mkdp'
 Plugin 'iamcco/markdown-preview.vim'
+Plugin 'tpope/vim-surround'
