@@ -81,6 +81,8 @@ endif
 
 vmap <C-c> "+y
 vmap <C-v> "+p
+inoremap <C-c> "+y
+inoremap <C-v> "+p
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <C-h> <C-w>h
@@ -151,6 +153,15 @@ endif
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+
+
+"php 
+"
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-projectionist'
+Plugin 'noahfrederick/vim-composer'
+Plugin 'noahfrederick/vim-laravel'
+Plugin 'jwalton512/vim-blade'
 
 Plugin 'prabirshrestha/vim-lsp'
 Plugin 'mattn/vim-lsp-settings'
