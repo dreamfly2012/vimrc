@@ -1,7 +1,7 @@
 syntax on 
 
 set relativenumber
-
+ 
 set number 
 
 set showcmd " show command in line
@@ -83,6 +83,8 @@ vmap <C-c> "+y
 vmap <C-v> "+p
 inoremap <C-c> "+y
 inoremap <C-v> "+p
+inoremap <C-j> <ESC>o 
+inoremap <C-k> <ESC>O 
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <C-h> <C-w>h
