@@ -81,6 +81,8 @@ endif
 
 vmap <C-c> "+y
 vmap <C-v> "+p
+inoremap <C-c> "+y
+inoremap <C-v> "+p
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <C-h> <C-w>h
@@ -96,6 +98,7 @@ nmap <silent> <C-F9> <Plug>StopMarkdownPreview
 imap <silent> <C-F9> <Plug>StopMarkdownPreview
 vnoremap <C-y> "+y
 nnoremap <C-f> :FZF<CR>
+<<<<<<< HEAD
 
 "php autoimport
 
@@ -171,20 +174,27 @@ endif
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+
+"php 
+"
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-projectionist'
+Plugin 'noahfrederick/vim-composer'
+Plugin 'noahfrederick/vim-laravel'
+Plugin 'jwalton512/vim-blade'
+
 Plugin 'prabirshrestha/vim-lsp'
 Plugin 'mattn/vim-lsp-settings'
 Plugin 'prabirshrestha/asyncomplete.vim'
 Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'Yggdroot/LeaderF'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'fatih/vim-go'
 Plugin 'dgryski/vim-godef'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'puremourning/vimspector'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'majutsushi/tagbar'
 Plugin 'airblade/vim-gitgutter'
