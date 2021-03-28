@@ -98,7 +98,13 @@ nmap <silent> <C-F9> <Plug>StopMarkdownPreview
 imap <silent> <C-F9> <Plug>StopMarkdownPreview
 vnoremap <C-y> "+y
 nnoremap <C-f> :FZF<CR>
-<<<<<<< HEAD
+
+
+"termdebug
+nnoremap <F11> :Step<CR>
+nnoremap <F5> :Run<CR>
+nnoremap <F10> :Over<CR>
+nnoremap <F9> :Break<CR>
 
 "php autoimport
 
