@@ -98,6 +98,32 @@ nmap <silent> <C-F9> <Plug>StopMarkdownPreview
 imap <silent> <C-F9> <Plug>StopMarkdownPreview
 vnoremap <C-y> "+y
 nnoremap <C-f> :FZF<CR>
+
+
+"termdebug
+nnoremap <F11> :Step<CR>
+nnoremap <F5> :Run<CR>
+nnoremap <F10> :Over<CR>
+nnoremap <F9> :Break<CR>
+
+"php autoimport
+
+set tags+=tags,tags.vendors
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
+endfunction
+autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+
+function! IPhpExpandClass()
+    call PhpExpandClass()
+    call feedkeys('a', 'n')
+endfunction
+autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
+autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+
+
 let g:go_fmt_command="goimports"
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
@@ -181,3 +207,5 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'iamcco/mathjax-support-for-mkdp'
 Plugin 'iamcco/markdown-preview.vim'
 Plugin 'tpope/vim-surround'
+Plugin 'arnaud-lb/vim-php-namespace'
+Plugin 'craigemery/vim-autotag'
