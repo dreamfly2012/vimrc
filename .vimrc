@@ -2,6 +2,8 @@ syntax on
 
 set relativenumber
 
+set t_Co=256
+
 set number 
 
 set showcmd " show command in line
