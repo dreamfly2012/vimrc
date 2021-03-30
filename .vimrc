@@ -1,12 +1,14 @@
 syntax on 
 
+set t_Co=256
+
 set relativenumber
+
+colorscheme molokai
 
 set number 
 
 set showcmd " show command in line
-
-set mouse=a " mouse enable
 
 set encoding=utf-8 
 
@@ -42,18 +44,12 @@ set ignorecase smartcase
 
 set nowrapscan 
 
-set incsearch 
-
 set noerrorbells 
 
 set novisualbell  
 set magic 
 
 set hidden 
-
-set guioptions-=T 
-
-set guioptions-=m 
 
 set smartindent 
 
@@ -125,7 +121,6 @@ autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 
 
 let g:go_fmt_command="goimports"
-let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_extra_types = 1
