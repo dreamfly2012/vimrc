@@ -1,7 +1,8 @@
 syntax on 
 
 set relativenumber
- 
+
+colorscheme molokai
 set number 
 
 set showcmd " show command in line
