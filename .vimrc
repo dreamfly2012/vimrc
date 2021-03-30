@@ -2,7 +2,6 @@ syntax on
 
 set relativenumber
 
-colorscheme molokai
 set number 
 
 set showcmd " show command in line
@@ -44,8 +43,6 @@ set ignorecase smartcase
 set nowrapscan 
 
 set incsearch 
-
-set hlsearch
 
 set noerrorbells 
 
