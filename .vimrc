@@ -1,10 +1,10 @@
 syntax on 
 
-"set t_Co=256
+set t_Co=256
 
 set relativenumber
 
-colorscheme molokai
+colorscheme monokai
 
 set number 
 
@@ -179,7 +179,6 @@ call vundle#rc()
 
 
 "php 
-"
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-projectionist'
 Plugin 'noahfrederick/vim-composer'
