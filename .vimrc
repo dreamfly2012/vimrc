@@ -4,7 +4,7 @@ set t_Co=256
 
 set relativenumber
 
-colorscheme molokai
+colorscheme monokai
 
 set number 
 
