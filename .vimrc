@@ -1,6 +1,6 @@
 syntax on 
 
-set t_Co=256
+"set t_Co=256
 
 set relativenumber
 
@@ -33,6 +33,8 @@ set wildmode=longest:list,full " show recommend command you can use tab
 set autoread " when other file change the file ,it will tell you
 
 set nobackup 
+
+set hlsearch
 
 filetype plugin indent on 
 
@@ -204,3 +206,4 @@ Plugin 'iamcco/markdown-preview.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'craigemery/vim-autotag'
+Plugin 'mattn/emmet-vim'
