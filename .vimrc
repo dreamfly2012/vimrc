@@ -34,6 +34,8 @@ set autoread " when other file change the file ,it will tell you
 
 set nobackup 
 
+set hlsearch
+
 filetype plugin indent on 
 
 filetype indent on 
@@ -177,7 +179,6 @@ call vundle#rc()
 
 
 "php 
-"
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-projectionist'
 Plugin 'noahfrederick/vim-composer'
@@ -204,3 +205,4 @@ Plugin 'iamcco/markdown-preview.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'craigemery/vim-autotag'
+Plugin 'mattn/emmet-vim'
