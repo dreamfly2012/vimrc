@@ -1,10 +1,8 @@
-syntax on 
+sntax on 
 
 set t_Co=256
 
 set relativenumber
-
-colorscheme monokai
 
 set number 
 
