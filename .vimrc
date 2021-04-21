@@ -153,6 +153,11 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+ autocmd FileType vue syntax sync fromstart
+"代码格式化的快捷键，设置为F9
+ autocmd FileType vue noremap <buffer> <F9> :%!vue-formatter<CR>
+"启用eslint代码检查，如果不想受限制，可以注释掉
+ let g:syntastic_javascript_checkers = ['eslint']
 "let g:gitgutter_sign_added = '+'
 "let g:gitgutter_sign_modified = 'yy'
 "let g:gitgutter_sign_removed = 'zz'
@@ -204,3 +209,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'craigemery/vim-autotag'
 Plugin 'mattn/emmet-vim'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'MaraniMatias/vue-formatter'
+Plugin 'posva/vim-vue'
+Plugin 'vim-syntastic/syntastic'
