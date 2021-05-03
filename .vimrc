@@ -79,8 +79,6 @@ if has("autocmd")
     autocmd! bufwritepost vimrc source $MYVIMRC
 endif
 
-vmap <C-c> "+y
-vmap <C-v> "+p
 inoremap <C-c> "+y
 inoremap <C-v> "+p
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -90,15 +88,7 @@ nnoremap <C-l> <C-w>l
 nnoremap J 10j
 nnoremap K 10k
 inoremap jk  <ESC>
-nmap <silent> <C-F8> <Plug>MarkdownPreview
-imap <silent> <C-F8> <Plug>MarkdownPreview
-" for normal mode
-nmap <silent> <C-F9> <Plug>StopMarkdownPreview
-" for insert mode
-imap <silent> <C-F9> <Plug>StopMarkdownPreview
-vnoremap <C-y> "+y
 nnoremap <C-f> :FZF<CR>
-<<<<<<< HEAD
 
 "php autoimport
 
