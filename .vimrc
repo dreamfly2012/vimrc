@@ -2,6 +2,8 @@ syntax on
 
 set t_Co=256
 
+colorscheme monokai
+
 set relativenumber
 
 set number 
@@ -73,12 +75,8 @@ if has("autocmd")
     autocmd! bufwritepost vimrc source $MYVIMRC
 endif
 
-vmap <C-c> "+y
-vmap <C-v> "+p
 inoremap <C-c> "+y
 inoremap <C-v> "+p
-inoremap <C-j> <ESC>o 
-inoremap <C-k> <ESC>O 
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <C-h> <C-w>h
@@ -86,13 +84,6 @@ nnoremap <C-l> <C-w>l
 nnoremap J 10j
 nnoremap K 10k
 inoremap jk  <ESC>
-nmap <silent> <C-F8> <Plug>MarkdownPreview
-imap <silent> <C-F8> <Plug>MarkdownPreview
-" for normal mode
-nmap <silent> <C-F9> <Plug>StopMarkdownPreview
-" for insert mode
-imap <silent> <C-F9> <Plug>StopMarkdownPreview
-vnoremap <C-y> "+y
 nnoremap <C-f> :FZF<CR>
 
 
@@ -129,16 +120,6 @@ let g:go_highlight_operators = 1
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 let g:lsp_diagnostics_echo_cursor = 1
 let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
-:nn <M-1> 1gt
-:nn <M-2> 2gt
-:nn <M-3> 3gt
-:nn <M-4> 4gt
-:nn <M-5> 5gt
-:nn <M-6> 6gt
-:nn <M-7> 7gt
-:nn <M-8> 8gt
-:nn <M-9> 9gt
-:nn <M-0> :tablast<CR>
 
 "gitgutter 
 highlight GitGutterAdd    guifg=#009900 ctermfg=2
@@ -158,12 +139,6 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
  autocmd FileType vue noremap <buffer> <F9> :%!vue-formatter<CR>
 "启用eslint代码检查，如果不想受限制，可以注释掉
  let g:syntastic_javascript_checkers = ['eslint']
-"let g:gitgutter_sign_added = '+'
-"let g:gitgutter_sign_modified = 'yy'
-"let g:gitgutter_sign_removed = 'zz'
-"let g:gitgutter_sign_removed_first_line = '^^'
-"let g:gitgutter_sign_removed_above_and_below = '{'
-"let g:gitgutter_sign_modified_removed = 'ww'
 
 let hasVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
@@ -192,6 +167,7 @@ Plugin 'prabirshrestha/vim-lsp'
 Plugin 'mattn/vim-lsp-settings'
 Plugin 'prabirshrestha/asyncomplete.vim'
 Plugin 'prabirshrestha/asyncomplete-lsp.vim'
+
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'junegunn/fzf'
