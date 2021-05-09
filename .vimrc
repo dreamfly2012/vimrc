@@ -156,18 +156,16 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 
-"php 
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-projectionist'
 Plugin 'noahfrederick/vim-composer'
 Plugin 'noahfrederick/vim-laravel'
 Plugin 'jwalton512/vim-blade'
 
-Plugin 'prabirshrestha/vim-lsp'
-Plugin 'mattn/vim-lsp-settings'
-Plugin 'prabirshrestha/asyncomplete.vim'
-Plugin 'prabirshrestha/asyncomplete-lsp.vim'
-
+"Plugin 'prabirshrestha/vim-lsp'
+"Plugin 'mattn/vim-lsp-settings'
+"Plugin 'prabirshrestha/asyncomplete.vim'
+"Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'junegunn/fzf'
