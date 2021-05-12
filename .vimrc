@@ -2,7 +2,7 @@ syntax on
 
 set t_Co=256
 
-colorscheme monokai
+colorscheme desert
 
 set relativenumber
 
@@ -140,50 +140,38 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 "启用eslint代码检查，如果不想受限制，可以注释掉
  let g:syntastic_javascript_checkers = ['eslint']
 
-let hasVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
 
+call plug#begin('~/.vim/plugged') 
 
-if !filereadable(vundle_readme)
-    echo "Installing Vundle..."
-    echo ""
-    silent !mkdir -p ~/.vim/bundle
-    silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
-    let hasVundle=0
-endif
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-projectionist'
-Plugin 'noahfrederick/vim-composer'
-Plugin 'noahfrederick/vim-laravel'
-Plugin 'jwalton512/vim-blade'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-projectionist'
+Plug 'noahfrederick/vim-composer'
+Plug 'noahfrederick/vim-laravel'
+Plug 'jwalton512/vim-blade'
 
 "Plugin 'prabirshrestha/vim-lsp'
 "Plugin 'mattn/vim-lsp-settings'
 "Plugin 'prabirshrestha/asyncomplete.vim'
 "Plugin 'prabirshrestha/asyncomplete-lsp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-Plugin 'fatih/vim-go'
-Plugin 'dgryski/vim-godef'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'majutsushi/tagbar'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'iamcco/mathjax-support-for-mkdp'
-Plugin 'iamcco/markdown-preview.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'arnaud-lb/vim-php-namespace'
-Plugin 'craigemery/vim-autotag'
-Plugin 'mattn/emmet-vim'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'MaraniMatias/vue-formatter'
-Plugin 'posva/vim-vue'
-Plugin 'vim-syntastic/syntastic'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'fatih/vim-go'
+Plug 'dgryski/vim-godef'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'jiangmiao/auto-pairs'
+Plug 'majutsushi/tagbar'
+Plug 'airblade/vim-gitgutter'
+Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'iamcco/markdown-preview.vim'
+Plug 'tpope/vim-surround'
+Plug 'arnaud-lb/vim-php-namespace'
+Plug 'craigemery/vim-autotag'
+Plug 'mattn/emmet-vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'MaraniMatias/vue-formatter'
+Plug 'posva/vim-vue'
+Plug 'vim-syntastic/syntastic'
+call plug#end()
