@@ -2,7 +2,7 @@ syntax on
 
 set t_Co=256
 
-colorscheme desert
+colorscheme monokai
 
 set relativenumber
 
@@ -145,6 +145,16 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 "let g:gitgutter_sign_removed_above_and_below = '{'
 "let g:gitgutter_sign_modified_removed = 'ww'
 
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
 
 call plug#begin('~/.vim/plugged') 
 
@@ -153,7 +163,6 @@ Plug 'tpope/vim-projectionist'
 Plug 'noahfrederick/vim-composer'
 Plug 'noahfrederick/vim-laravel'
 Plug 'jwalton512/vim-blade'
-
 "Plugin 'prabirshrestha/vim-lsp'
 "Plugin 'mattn/vim-lsp-settings'
 "Plugin 'prabirshrestha/asyncomplete.vim'
