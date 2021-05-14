@@ -2,6 +2,8 @@ syntax on
 
 set t_Co=256
 
+colorscheme desert
+
 set relativenumber
 
 set number 
@@ -73,22 +75,14 @@ if has("autocmd")
     autocmd! bufwritepost vimrc source $MYVIMRC
 endif
 
-inoremap <C-j> <ESC>o 
-inoremap <C-k> <ESC>O 
+inoremap <C-c> "+y
+inoremap <C-v> "+p
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
-nnoremap J 10j
 nnoremap K 10k
 inoremap jk  <ESC>
-nmap <silent> <C-F8> <Plug>MarkdownPreview
-imap <silent> <C-F8> <Plug>MarkdownPreview
-" for normal mode
-nmap <silent> <C-F9> <Plug>StopMarkdownPreview
-" for insert mode
-imap <silent> <C-F9> <Plug>StopMarkdownPreview
-vnoremap <C-y> "+y
 nnoremap <C-f> :FZF<CR>
 
 
@@ -125,16 +119,6 @@ let g:go_highlight_operators = 1
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 let g:lsp_diagnostics_echo_cursor = 1
 let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
-:nn <M-1> 1gt
-:nn <M-2> 2gt
-:nn <M-3> 3gt
-:nn <M-4> 4gt
-:nn <M-5> 5gt
-:nn <M-6> 6gt
-:nn <M-7> 7gt
-:nn <M-8> 8gt
-:nn <M-9> 9gt
-:nn <M-0> :tablast<CR>
 
 "gitgutter 
 highlight GitGutterAdd    guifg=#009900 ctermfg=2
@@ -162,17 +146,18 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 "let g:gitgutter_sign_modified_removed = 'ww'
 
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/plugged') 
+
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-projectionist'
 Plug 'noahfrederick/vim-composer'
 Plug 'noahfrederick/vim-laravel'
 Plug 'jwalton512/vim-blade'
 
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+"Plugin 'prabirshrestha/vim-lsp'
+"Plugin 'mattn/vim-lsp-settings'
+"Plugin 'prabirshrestha/asyncomplete.vim'
+"Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'junegunn/fzf'
