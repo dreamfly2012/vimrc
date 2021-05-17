@@ -2,8 +2,6 @@ syntax on
 
 set t_Co=256
 
-colorscheme monokai
-
 set relativenumber
 
 set number 
@@ -188,4 +186,5 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'MaraniMatias/vue-formatter'
 Plug 'posva/vim-vue'
 Plug 'vim-syntastic/syntastic'
+Plug 'diepm/vim-rest-console'
 call plug#end()
