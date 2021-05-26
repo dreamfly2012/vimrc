@@ -4,6 +4,8 @@ set t_Co=256
 
 set relativenumber
 
+colorscheme molokai
+
 set number 
 
 set showcmd " show command in line
