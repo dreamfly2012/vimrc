@@ -1,5 +1,7 @@
 syntax on 
 
+set t_Co=256
+
 set relativenumber
 
 set number 
@@ -31,6 +33,8 @@ set wildmode=longest:list,full " show recommend command you can use tab
 set autoread " when other file change the file ,it will tell you
 
 set nobackup 
+
+set hlsearch
 
 filetype plugin indent on 
 
@@ -88,10 +92,20 @@ nnoremap <C-l> <C-w>l
 nnoremap J 10j
 nnoremap K 10k
 inoremap jk  <ESC>
-nnoremap <C-f> :FZF<CR>
+nmap <silent> <C-F8> <Plug>MarkdownPreview
+imap <silent> <C-F8> <Plug>MarkdownPreview
+" for normal mode
+nmap <silent> <C-F9> <Plug>StopMarkdownPreview
+" for insert mode
+imap <silent> <C-F9> <Plug>StopMarkdownPreview
+vnoremap <C-y> "+y
 
-"php autoimport
 
+"termdebug
+nnoremap <F11> :Step<CR>
+nnoremap <F5> :Run<CR>
+nnoremap <F10> :Over<CR>
+nnoremap <F9> :Break<CR>
 set tags+=tags,tags.vendors
 function! IPhpInsertUse()
     call PhpInsertUse()
@@ -109,7 +123,6 @@ autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 
 
 let g:go_fmt_command="goimports"
-let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_extra_types = 1
@@ -142,6 +155,11 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+ autocmd FileType vue syntax sync fromstart
+"代码格式化的快捷键，设置为F9
+ autocmd FileType vue noremap <buffer> <F9> :%!vue-formatter<CR>
+"启用eslint代码检查，如果不想受限制，可以注释掉
+ let g:syntastic_javascript_checkers = ['eslint']
 "let g:gitgutter_sign_added = '+'
 "let g:gitgutter_sign_modified = 'yy'
 "let g:gitgutter_sign_removed = 'zz'
@@ -166,7 +184,6 @@ call vundle#rc()
 
 
 "php 
-"
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-projectionist'
 Plugin 'noahfrederick/vim-composer'
@@ -193,3 +210,8 @@ Plugin 'iamcco/markdown-preview.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'craigemery/vim-autotag'
+Plugin 'mattn/emmet-vim'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'MaraniMatias/vue-formatter'
+Plugin 'posva/vim-vue'
+Plugin 'vim-syntastic/syntastic'
