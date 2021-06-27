@@ -4,7 +4,7 @@ set t_Co=256
 
 set relativenumber
 
-colorscheme molokai
+colorscheme monokai
 
 set number 
 
@@ -138,12 +138,6 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
  autocmd FileType vue noremap <buffer> <F9> :%!vue-formatter<CR>
 "启用eslint代码检查，如果不想受限制，可以注释掉
  let g:syntastic_javascript_checkers = ['eslint']
-"let g:gitgutter_sign_added = '+'
-"let g:gitgutter_sign_modified = 'yy'
-"let g:gitgutter_sign_removed = 'zz'
-"let g:gitgutter_sign_removed_first_line = '^^'
-"let g:gitgutter_sign_removed_above_and_below = '{'
-"let g:gitgutter_sign_modified_removed = 'ww'
 
 " Install vim-plug if not found
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -163,10 +157,10 @@ Plug 'tpope/vim-projectionist'
 Plug 'noahfrederick/vim-composer'
 Plug 'noahfrederick/vim-laravel'
 Plug 'jwalton512/vim-blade'
-"Plugin 'prabirshrestha/vim-lsp'
-"Plugin 'mattn/vim-lsp-settings'
-"Plugin 'prabirshrestha/asyncomplete.vim'
-"Plugin 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'junegunn/fzf'
@@ -178,6 +172,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.vim'
 Plug 'tpope/vim-surround'
