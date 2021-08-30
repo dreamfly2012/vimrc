@@ -4,8 +4,6 @@ set t_Co=256
 
 set relativenumber
 
-colorscheme monokai
-
 set number 
 
 set showcmd " show command in line
@@ -127,6 +125,7 @@ highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 
 let g:gitgutter_enabled = 1
 let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
+let g:vim_markdown_folding_disabled = 1
 " Tab completion
 imap <c-space> <Plug>(asyncomplete_force_refresh)
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -149,6 +148,7 @@ endif
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
+
 
 call plug#begin('~/.vim/plugged') 
 
@@ -184,4 +184,7 @@ Plug 'MaraniMatias/vue-formatter'
 Plug 'posva/vim-vue'
 Plug 'vim-syntastic/syntastic'
 Plug 'diepm/vim-rest-console'
+Plug 'godlygeek/tabular' 
+Plug 'plasticboy/vim-markdown'
+Plug 'joker1007/vim-markdown-quote-syntax'
 call plug#end()
