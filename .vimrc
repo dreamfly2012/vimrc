@@ -106,7 +106,11 @@ function! IPhpExpandClass()
 endfunction
 autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
 autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
-
+"python format
+nnoremap <F6> :Autoformat<CR>
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+let g:autoformat_remove_trailing_spaces = 0
 
 let g:go_fmt_command="goimports"
 let g:go_highlight_functions = 1
@@ -187,4 +191,5 @@ Plug 'diepm/vim-rest-console'
 Plug 'godlygeek/tabular' 
 Plug 'plasticboy/vim-markdown'
 Plug 'joker1007/vim-markdown-quote-syntax'
+Plug 'Chiel92/vim-autoformat'
 call plug#end()
