@@ -6,6 +6,10 @@ set relativenumber
 
 colorscheme molokai
 
+hi Normal ctermbg=NONE
+
+set mouse=a 
+
 set nobackup
 
 set noswapfile
@@ -23,7 +27,6 @@ set shiftwidth=4
 set softtabstop=4 
 
 set tabstop=4 
-
 set expandtab 
 
 set scrolloff=15 
@@ -56,6 +59,8 @@ set novisualbell
 set magic 
 
 set hidden 
+
+set smarttab
 
 set smartindent 
 
