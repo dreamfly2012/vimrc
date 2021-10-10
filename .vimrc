@@ -84,6 +84,12 @@ nnoremap <C-l> <C-w>l
 nnoremap K 10k
 inoremap jk  <ESC>
 nnoremap <C-f> :FZF<CR>
+"window size 
+
+nnoremap w- :resize -3<CR>
+nnoremap w= :resize +3<CR>
+nnoremap w, :vertical resize -3<CR>
+nnoremap w. :vertical resize +3<CR>
 
 
 "termdebug
@@ -185,3 +191,4 @@ Plug 'posva/vim-vue'
 Plug 'vim-syntastic/syntastic'
 Plug 'diepm/vim-rest-console'
 call plug#end()
+packadd termdebug
