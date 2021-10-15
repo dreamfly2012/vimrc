@@ -4,7 +4,13 @@ set t_Co=256
 
 set relativenumber
 
-colorscheme monokai
+hi Normal ctermbg=NONE
+
+set mouse=a 
+
+set nobackup
+
+set noswapfile
 
 set number 
 
@@ -19,7 +25,6 @@ set shiftwidth=4
 set softtabstop=4 
 
 set tabstop=4 
-
 set expandtab 
 
 set scrolloff=15 
@@ -52,6 +57,8 @@ set novisualbell
 set magic 
 
 set hidden 
+
+set smarttab
 
 set smartindent 
 
@@ -114,7 +121,11 @@ function! IPhpExpandClass()
 endfunction
 autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
 autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
-
+"python format
+nnoremap <F6> :Autoformat<CR>
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+let g:autoformat_remove_trailing_spaces = 0
 
 let g:go_fmt_command="goimports"
 let g:go_highlight_functions = 1
@@ -133,15 +144,18 @@ highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 
 let g:gitgutter_enabled = 1
 let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
+let g:vim_markdown_folding_disabled = 1
 " Tab completion
 imap <c-space> <Plug>(asyncomplete_force_refresh)
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
- autocmd FileType vue syntax sync fromstart
+autocmd FileType vue syntax sync fromstart
 "代码格式化的快捷键，设置为F9
- autocmd FileType vue noremap <buffer> <F9> :%!vue-formatter<CR>
+let g:prettier#autoformat = 0
+autocmd FileType vue noremap <buffer> <F9> :%!vue-formatter<CR>
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 "启用eslint代码检查，如果不想受限制，可以注释掉
  let g:syntastic_javascript_checkers = ['eslint']
 
@@ -156,39 +170,56 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
 
+
 call plug#begin('~/.vim/plugged') 
 
+"php
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-projectionist'
 Plug 'noahfrederick/vim-composer'
 Plug 'noahfrederick/vim-laravel'
+Plug 'arnaud-lb/vim-php-namespace'
 Plug 'jwalton512/vim-blade'
+"lsp
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
+"explorer tree
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+"search files
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+"golang
 Plug 'fatih/vim-go'
 Plug 'dgryski/vim-godef'
+"bottom status bar
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'majutsushi/tagbar'
+"git 
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-Plug 'iamcco/mathjax-support-for-mkdp'
-Plug 'iamcco/markdown-preview.vim'
 Plug 'tpope/vim-surround'
-Plug 'arnaud-lb/vim-php-namespace'
 Plug 'craigemery/vim-autotag'
 Plug 'mattn/emmet-vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'MaraniMatias/vue-formatter'
-Plug 'posva/vim-vue'
 Plug 'vim-syntastic/syntastic'
+"http rest
 Plug 'diepm/vim-rest-console'
+"markdown
+Plug 'godlygeek/tabular' 
+Plug 'plasticboy/vim-markdown'
+Plug 'joker1007/vim-markdown-quote-syntax'
+Plug 'Chiel92/vim-autoformat'
+"javascript
+Plug 'posva/vim-vue'
+Plug 'MaraniMatias/vue-formatter'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 call plug#end()
 packadd termdebug
