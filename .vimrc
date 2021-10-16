@@ -93,8 +93,11 @@ nnoremap <C-l> <C-w>l
 nnoremap K 10k
 inoremap jk  <ESC>
 nnoremap <C-f> :FZF<CR>
-
-
+"window resize
+nnoremap w+ :resize 3+<CR>
+nnoremap w- :resize 3-<CR>
+nnoremap w, :vert resize 3+<CR>
+nnoremap w. :vert resize 3-<CR>
 "termdebug
 nnoremap <F11> :Step<CR>
 nnoremap <F5> :Run<CR>
