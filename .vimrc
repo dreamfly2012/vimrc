@@ -1,10 +1,78 @@
 syntax on 
 
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+
+
+call plug#begin('~/.vim/plugged') 
+
+"php
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-projectionist'
+Plug 'noahfrederick/vim-composer'
+Plug 'noahfrederick/vim-laravel'
+Plug 'arnaud-lb/vim-php-namespace'
+Plug 'jwalton512/vim-blade'
+"lsp
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+"explorer tree
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+"search files
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+"golang
+Plug 'fatih/vim-go'
+Plug 'dgryski/vim-godef'
+"bottom status bar
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'jiangmiao/auto-pairs'
+Plug 'majutsushi/tagbar'
+"git 
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'craigemery/vim-autotag'
+Plug 'mattn/emmet-vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'vim-syntastic/syntastic'
+"http rest
+Plug 'diepm/vim-rest-console'
+"markdown
+Plug 'godlygeek/tabular' 
+Plug 'plasticboy/vim-markdown'
+Plug 'joker1007/vim-markdown-quote-syntax'
+Plug 'Chiel92/vim-autoformat'
+"javascript
+Plug 'posva/vim-vue'
+Plug 'MaraniMatias/vue-formatter'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+"theme
+Plug 'sickill/vim-monokai'
+call plug#end()
+
+packadd termdebug
+
+colorscheme monokai
+
 set t_Co=256
 
 set relativenumber
-
-colorscheme molokai
 
 hi Normal ctermbg=NONE
 
@@ -158,66 +226,3 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 "启用eslint代码检查，如果不想受限制，可以注释掉
  let g:syntastic_javascript_checkers = ['eslint']
 
-" Install vim-plug if not found
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-endif
-
-" Run PlugInstall if there are missing plugins
-autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync | source $MYVIMRC
-\| endif
-
-
-call plug#begin('~/.vim/plugged') 
-
-"php
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-projectionist'
-Plug 'noahfrederick/vim-composer'
-Plug 'noahfrederick/vim-laravel'
-Plug 'arnaud-lb/vim-php-namespace'
-Plug 'jwalton512/vim-blade'
-"lsp
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-"explorer tree
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-"search files
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-"golang
-Plug 'fatih/vim-go'
-Plug 'dgryski/vim-godef'
-"bottom status bar
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'jiangmiao/auto-pairs'
-Plug 'majutsushi/tagbar'
-"git 
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'craigemery/vim-autotag'
-Plug 'mattn/emmet-vim'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'vim-syntastic/syntastic'
-"http rest
-Plug 'diepm/vim-rest-console'
-"markdown
-Plug 'godlygeek/tabular' 
-Plug 'plasticboy/vim-markdown'
-Plug 'joker1007/vim-markdown-quote-syntax'
-Plug 'Chiel92/vim-autoformat'
-"javascript
-Plug 'posva/vim-vue'
-Plug 'MaraniMatias/vue-formatter'
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
-call plug#end()
