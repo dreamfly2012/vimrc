@@ -128,6 +128,10 @@ set magic
 
 set hidden 
 
+set splitbelow
+
+set splitright
+
 set smarttab
 
 set smartindent 
