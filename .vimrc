@@ -96,6 +96,7 @@ set softtabstop=4
 
 set tabstop=4 
 set expandtab 
+set winheight=10
 
 set scrolloff=15 
 
@@ -128,6 +129,10 @@ set magic
 
 "set hidden 
 
+set splitbelow
+
+set splitright
+
 set smarttab
 
 set smartindent 
@@ -135,6 +140,9 @@ set smartindent
 set backspace=indent,eol,start
 
 set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 if has("multi_byte")
 
@@ -162,10 +170,10 @@ nnoremap K 10k
 inoremap jk  <ESC>
 nnoremap <C-f> :FZF<CR>
 "window resize
-nnoremap w+ :resize 3+<CR>
-nnoremap w- :resize 3-<CR>
-nnoremap w, :vert resize 3+<CR>
-nnoremap w. :vert resize 3-<CR>
+nnoremap w= :resize +3<CR>
+nnoremap w- :resize -3<CR>
+nnoremap w, :vert resize -3<CR> 
+nnoremap w. :vert resize +3<CR>
 "termdebug
 nnoremap <F11> :Step<CR>
 nnoremap <F5> :Run<CR>
