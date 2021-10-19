@@ -126,7 +126,7 @@ set noerrorbells
 set novisualbell  
 set magic 
 
-set hidden 
+"set hidden 
 
 set smarttab
 
