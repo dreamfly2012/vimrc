@@ -53,6 +53,8 @@ Plug 'diepm/vim-rest-console'
 "markdown
 Plug 'godlygeek/tabular' 
 Plug 'plasticboy/vim-markdown'
+Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'joker1007/vim-markdown-quote-syntax'
 Plug 'Chiel92/vim-autoformat'
 "javascript
