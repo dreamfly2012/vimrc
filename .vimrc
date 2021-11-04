@@ -80,10 +80,6 @@ hi Normal ctermbg=NONE
 
 set mouse=a 
 
-set nobackup
-
-set noswapfile
-
 set number 
 
 set showcmd " show command in line
@@ -110,8 +106,6 @@ set wildmode=longest:list,full " show recommend command you can use tab
 
 set autoread " when other file change the file ,it will tell you
 
-set nobackup 
-
 set hlsearch
 
 filetype plugin indent on 
@@ -129,7 +123,7 @@ set noerrorbells
 set novisualbell  
 set magic 
 
-set hidden 
+"set hidden 
 
 set splitbelow
 
@@ -145,6 +139,7 @@ set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+
 
 if has("multi_byte")
 
@@ -234,5 +229,5 @@ let g:prettier#autoformat = 0
 autocmd FileType vue noremap <buffer> <F9> :%!vue-formatter<CR>
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 "启用eslint代码检查，如果不想受限制，可以注释掉
- let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['eslint']
 
