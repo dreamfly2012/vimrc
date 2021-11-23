@@ -19,7 +19,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-projectionist'
 Plug 'noahfrederick/vim-composer'
 Plug 'noahfrederick/vim-laravel'
-Plug 'arnaud-lb/vim-php-namespace'
 Plug 'jwalton512/vim-blade'
 "lsp
 Plug 'prabirshrestha/vim-lsp'
@@ -43,6 +42,7 @@ Plug 'majutsushi/tagbar'
 "git 
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+"surround
 Plug 'tpope/vim-surround'
 Plug 'craigemery/vim-autotag'
 Plug 'mattn/emmet-vim'
@@ -65,12 +65,13 @@ Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 "theme
-Plug 'sickill/vim-monokai'
+"Plug 'sickill/vim-monokai'
+Plug 'dracula/vim'
 call plug#end()
 
 packadd termdebug
 
-colorscheme monokai
+colorscheme dracula
 
 set t_Co=256
 
@@ -78,7 +79,9 @@ set relativenumber
 
 hi Normal ctermbg=NONE
 
-set mouse=a 
+set mouse="" 
+
+set clipboard=unnamed
 
 set number 
 
