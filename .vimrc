@@ -1,5 +1,6 @@
 syntax on 
 
+let g:dracula_italic=0
 " Install vim-plug if not found
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -21,11 +22,13 @@ Plug 'noahfrederick/vim-composer'
 Plug 'noahfrederick/vim-laravel'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'jwalton512/vim-blade'
+Plug 'junegunn/limelight.vim'        
+Plug 'junegunn/goyo.vim' 
 "lsp
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+"Plug 'prabirshrestha/vim-lsp'
+"Plug 'mattn/vim-lsp-settings'
+"Plug 'prabirshrestha/asyncomplete.vim'
+"Plug 'prabirshrestha/asyncomplete-lsp.vim'
 "explorer tree
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -51,8 +54,9 @@ Plug 'vim-syntastic/syntastic'
 "http rest
 Plug 'diepm/vim-rest-console'
 "markdown
+Plug 'gabrielelana/vim-markdown'
 Plug 'godlygeek/tabular' 
-Plug 'plasticboy/vim-markdown'
+"Plug 'plasticboy/vim-markdown'
 Plug 'joker1007/vim-markdown-quote-syntax'
 Plug 'Chiel92/vim-autoformat'
 "javascript
@@ -63,18 +67,22 @@ Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 "theme
-Plug 'sickill/vim-monokai'
+"Plug 'sickill/vim-monokai'
+Plug 'dracula/vim'
 call plug#end()
 
 packadd termdebug
 
-colorscheme monokai
+colorscheme dracula
+
 
 set t_Co=256
 
 set relativenumber
 
 hi Normal ctermbg=NONE
+
+"ctermbg=NONE
 
 set mouse=a 
 
@@ -137,7 +145,23 @@ set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'Gray'
+let g:limelight_conceal_ctermfg = 240
+" Color name (:help gui-colors) or RGB color
+let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_conceal_guifg = '#777777'
+" 包含的前后段的数量
+let g:limelight_paragraph_span = 1
+" Set it to -1 not to overrule hlsearch
+let g:limelight_priority = -1
+" Goyo配置
+let g:goyo_width = 86
+let g:goyo_height = 90
+let g:goyo_linenr = 0
+" 进入goyo模式后自动触发limelight，退出则关闭
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 
 if has("multi_byte")
 
@@ -161,7 +185,6 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
-nnoremap K 10k
 inoremap jk  <ESC>
 nnoremap <C-f> :FZF<CR>
 "window resize
@@ -212,6 +235,7 @@ highlight GitGutterAdd    guifg=#009900 ctermfg=2
 highlight GitGutterChange guifg=#bbbb00 ctermfg=3
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 
+let g:NERDTreeGitStatusPorcelainVersion=1
 let g:gitgutter_enabled = 1
 let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
 let g:vim_markdown_folding_disabled = 1
