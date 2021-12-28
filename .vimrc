@@ -20,7 +20,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-projectionist'
 Plug 'noahfrederick/vim-composer'
 Plug 'noahfrederick/vim-laravel'
-Plug 'arnaud-lb/vim-php-namespace'
 Plug 'jwalton512/vim-blade'
 Plug 'junegunn/limelight.vim'        
 Plug 'junegunn/goyo.vim' 
@@ -46,6 +45,7 @@ Plug 'majutsushi/tagbar'
 "git 
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+"surround
 Plug 'tpope/vim-surround'
 Plug 'craigemery/vim-autotag'
 Plug 'mattn/emmet-vim'
@@ -56,7 +56,13 @@ Plug 'diepm/vim-rest-console'
 "markdown
 Plug 'gabrielelana/vim-markdown'
 Plug 'godlygeek/tabular' 
+<<<<<<< HEAD
 "Plug 'plasticboy/vim-markdown'
+=======
+Plug 'plasticboy/vim-markdown'
+Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+>>>>>>> 21834327de2f63ea56b9e686d9fabb2e6dd60ad5
 Plug 'joker1007/vim-markdown-quote-syntax'
 Plug 'Chiel92/vim-autoformat'
 "javascript
@@ -74,7 +80,10 @@ call plug#end()
 packadd termdebug
 
 colorscheme dracula
+<<<<<<< HEAD
 
+=======
+>>>>>>> 21834327de2f63ea56b9e686d9fabb2e6dd60ad5
 
 set t_Co=256
 
@@ -82,9 +91,15 @@ set relativenumber
 
 hi Normal ctermbg=NONE
 
+<<<<<<< HEAD
 "ctermbg=NONE
 
 set mouse=a 
+=======
+set mouse="" 
+
+set clipboard=unnamed
+>>>>>>> 21834327de2f63ea56b9e686d9fabb2e6dd60ad5
 
 set number 
 
