@@ -4,6 +4,8 @@ set t_Co=256
 
 set relativenumber
 
+colorscheme monokai
+
 set number 
 
 set showcmd " show command in line
@@ -89,7 +91,6 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
-nnoremap J 10j
 nnoremap K 10k
 inoremap jk  <ESC>
 nmap <silent> <C-F8> <Plug>MarkdownPreview
@@ -99,7 +100,7 @@ nmap <silent> <C-F9> <Plug>StopMarkdownPreview
 " for insert mode
 imap <silent> <C-F9> <Plug>StopMarkdownPreview
 vnoremap <C-y> "+y
-
+nnoremap <C-f> :FZF<CR>
 
 "termdebug
 nnoremap <F11> :Step<CR>
@@ -131,16 +132,6 @@ let g:go_highlight_operators = 1
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 let g:lsp_diagnostics_echo_cursor = 1
 let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
-:nn <M-1> 1gt
-:nn <M-2> 2gt
-:nn <M-3> 3gt
-:nn <M-4> 4gt
-:nn <M-5> 5gt
-:nn <M-6> 6gt
-:nn <M-7> 7gt
-:nn <M-8> 8gt
-:nn <M-9> 9gt
-:nn <M-0> :tablast<CR>
 
 "gitgutter 
 highlight GitGutterAdd    guifg=#009900 ctermfg=2
@@ -160,58 +151,50 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
  autocmd FileType vue noremap <buffer> <F9> :%!vue-formatter<CR>
 "启用eslint代码检查，如果不想受限制，可以注释掉
  let g:syntastic_javascript_checkers = ['eslint']
-"let g:gitgutter_sign_added = '+'
-"let g:gitgutter_sign_modified = 'yy'
-"let g:gitgutter_sign_removed = 'zz'
-"let g:gitgutter_sign_removed_first_line = '^^'
-"let g:gitgutter_sign_removed_above_and_below = '{'
-"let g:gitgutter_sign_modified_removed = 'ww'
 
-let hasVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-
-
-if !filereadable(vundle_readme)
-    echo "Installing Vundle..."
-    echo ""
-    silent !mkdir -p ~/.vim/bundle
-    silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
-    let hasVundle=0
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
 
+call plug#begin('~/.vim/plugged') 
 
-"php 
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-projectionist'
-Plugin 'noahfrederick/vim-composer'
-Plugin 'noahfrederick/vim-laravel'
-Plugin 'jwalton512/vim-blade'
-
-Plugin 'prabirshrestha/vim-lsp'
-Plugin 'mattn/vim-lsp-settings'
-Plugin 'prabirshrestha/asyncomplete.vim'
-Plugin 'prabirshrestha/asyncomplete-lsp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-Plugin 'fatih/vim-go'
-Plugin 'dgryski/vim-godef'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'majutsushi/tagbar'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'iamcco/mathjax-support-for-mkdp'
-Plugin 'iamcco/markdown-preview.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'arnaud-lb/vim-php-namespace'
-Plugin 'craigemery/vim-autotag'
-Plugin 'mattn/emmet-vim'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'MaraniMatias/vue-formatter'
-Plugin 'posva/vim-vue'
-Plugin 'vim-syntastic/syntastic'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-projectionist'
+Plug 'noahfrederick/vim-composer'
+Plug 'noahfrederick/vim-laravel'
+Plug 'jwalton512/vim-blade'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'fatih/vim-go'
+Plug 'dgryski/vim-godef'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'jiangmiao/auto-pairs'
+Plug 'majutsushi/tagbar'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'iamcco/markdown-preview.vim'
+Plug 'tpope/vim-surround'
+Plug 'arnaud-lb/vim-php-namespace'
+Plug 'craigemery/vim-autotag'
+Plug 'mattn/emmet-vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'MaraniMatias/vue-formatter'
+Plug 'posva/vim-vue'
+Plug 'vim-syntastic/syntastic'
+Plug 'diepm/vim-rest-console'
+call plug#end()
