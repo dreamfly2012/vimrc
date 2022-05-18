@@ -12,6 +12,8 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
 
+let g:plug_url_format="git@github.com:%s.git"
+
 
 call plug#begin('~/.vim/plugged') 
 
@@ -24,10 +26,14 @@ Plug 'jwalton512/vim-blade'
 Plug 'junegunn/limelight.vim'        
 Plug 'junegunn/goyo.vim' 
 "lsp
-"Plug 'prabirshrestha/vim-lsp'
-"Plug 'mattn/vim-lsp-settings'
-"Plug 'prabirshrestha/asyncomplete.vim'
-"Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+"debug
+Plug 'puremourning/vimspector'
+"float terminal
+Plug 'zhiyuanlck/vim-float-terminal'
 "explorer tree
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
