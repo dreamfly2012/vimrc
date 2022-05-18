@@ -12,6 +12,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
 
+let g:plug_url_format="git@github.com:%s.git"
 
 call plug#begin('~/.vim/plugged') 
 
