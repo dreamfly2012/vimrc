@@ -33,7 +33,7 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 "debug
 Plug 'puremourning/vimspector'
 "float terminal
-Plug 'zhiyuanlck/vim-float-terminal'
+Plug 'voldikss/vim-floaterm'
 "explorer tree
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -59,13 +59,12 @@ Plug 'vim-syntastic/syntastic'
 "http rest
 Plug 'diepm/vim-rest-console'
 "markdown
-Plug 'gabrielelana/vim-markdown'
 Plug 'godlygeek/tabular' 
-Plug 'plasticboy/vim-markdown'
+Plug 'preservim/vim-markdown'
+Plug 'hotoo/pangu.vim'
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'joker1007/vim-markdown-quote-syntax'
-Plug 'Chiel92/vim-autoformat'
 "javascript
 Plug 'posva/vim-vue'
 Plug 'MaraniMatias/vue-formatter'
@@ -87,8 +86,6 @@ set t_Co=256
 set relativenumber
 
 hi Normal ctermbg=NONE
-
-"ctermbg=NONE
 
 set mouse=a 
 
@@ -177,10 +174,15 @@ let g:limelight_priority = -1
 let g:goyo_width = 86
 let g:goyo_height = 90
 let g:goyo_linenr = 0
+"terminal 
+nnoremap  <C-\>   :FloatermToggle<CR>
+tnoremap  <C-\>   <C-\><C-n>:FloatermToggle<CR>
 " 进入goyo模式后自动触发limelight，退出则关闭
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
+"markdwon syntax highlighting
+let g:vim_markdown_fenced_languages=['cpp','c++','c','php','go','bash','vim','shell','java','ruby','lua']
 if has("multi_byte")
 
 set encoding=utf-8
