@@ -182,7 +182,7 @@ autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
 "markdwon syntax highlighting
-let g:vim_markdown_fenced_languages=['cpp','c++','c','php','go','bash','vim','shell','java','ruby','lua']
+let g:vim_markdown_fenced_languages=['javascript','cpp','c++','c','php','go','bash','vim','shell','java','ruby','lua']
 if has("multi_byte")
 
 set encoding=utf-8
