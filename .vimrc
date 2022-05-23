@@ -26,10 +26,14 @@ Plug 'jwalton512/vim-blade'
 Plug 'junegunn/limelight.vim'        
 Plug 'junegunn/goyo.vim' 
 "lsp
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+"Plug 'prabirshrestha/vim-lsp'
+"Plug 'mattn/vim-lsp-settings'
+"Plug 'prabirshrestha/asyncomplete.vim'
+"Plug 'prabirshrestha/asyncomplete-lsp.vim'
+"snippet
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'jayli/vim-easycomplete'
 "debug
 Plug 'puremourning/vimspector'
 "float terminal
@@ -174,6 +178,10 @@ let g:limelight_priority = -1
 let g:goyo_width = 86
 let g:goyo_height = 90
 let g:goyo_linenr = 0
+"Ultisnip
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 "terminal 
 nnoremap  <C-\>   :FloatermToggle<CR>
 tnoremap  <C-\>   <C-\><C-n>:FloatermToggle<CR>
@@ -253,7 +261,6 @@ let g:go_highlight_operators = 1
 
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 let g:lsp_diagnostics_echo_cursor = 1
-let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
 
 "gitgutter 
 highlight GitGutterAdd    guifg=#009900 ctermfg=2
@@ -278,3 +285,66 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 "启用eslint代码检查，如果不想受限制，可以注释掉
 let g:syntastic_javascript_checkers = ['eslint']
 
+"easycomplete
+nnoremap gr :EasyCompleteReference<CR>
+nnoremap gd :EasyCompleteGotoDefinition<CR>
+nnoremap rn :EasyCompleteRename<CR>
+nnoremap gb :BackToOriginalBuffer<CR>
+
+let g:easycomplete_diagnostics_enable = 1
+let g:easycomplete_signature_enable = 1
+let g:easycomplete_tabnine_enable = 1
+let g:easycomplete_cursor_word_hl = 1
+let g:easycomplete_scheme = "blue"
+let g:easycomplete_menu_skin = {
+      \   "buf": {
+      \      "kind":"羅",
+      \      "menu":"[B]",
+      \    },
+      \   "snip": {
+      \      "kind":"",
+      \      "menu":"[S]",
+      \    },
+      \   "dict": {
+      \      "kind":"",
+      \      "menu":"[D]",
+      \    },
+      \   "tabnine": {
+      \      "kind":"",
+      \    },
+      \ }
+let g:easycomplete_sign_text = {
+      \   'error':       "",
+      \   'warning':     "",
+      \   'information': '',
+      \   'hint':        ''
+      \ }
+
+let g:easycomplete_filetypes = {"r": {
+      \ "whitelist": []
+      \ }}
+let g:easycomplete_tabnine_config = {
+      \ 'line_limit': 800,
+      \ 'max_num_result': 10,
+      \ }
+
+let g:easycomplete_lsp_type_font = {
+      \ 'class': "",     'color': "",
+      \ 'constant': "",  'constructor': "",
+      \ 'enum': "",      'enummember': "",
+      \ 'field': "料",    'file': '',
+      \ 'folder': "",    'function': "ƒ",
+      \ 'interface': "", 'keyword': "",
+      \ 'snippet': "",   'struct': "פּ",
+      \ 'text': "",      'typeparameter': "",
+      \ 'variable': "",  'module':'',
+      \ 'event': '',
+      \ 'r':'', 't':'',
+      \ 'f':'', 'c':'',
+      \ 'u':'𝘶', 'e':'𝘦',
+      \ 's':'פּ', 'v':'',
+      \ 'i':'𝘪', 'm':'',
+      \ 'p':'', 'k':'𝘬',
+      \ 'o':"𝘰", 'd':'𝘥',
+      \ 'l':"𝘭", 'a':"𝘢",
+      \ }
