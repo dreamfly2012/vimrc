@@ -26,14 +26,14 @@ Plug 'jwalton512/vim-blade'
 Plug 'junegunn/limelight.vim'        
 Plug 'junegunn/goyo.vim' 
 "lsp
-"Plug 'prabirshrestha/vim-lsp'
-"Plug 'mattn/vim-lsp-settings'
-"Plug 'prabirshrestha/asyncomplete.vim'
-"Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 "snippet
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'jayli/vim-easycomplete'
+"Plug 'jayli/vim-easycomplete'
 "debug
 Plug 'puremourning/vimspector'
 "float terminal
@@ -190,7 +190,18 @@ autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
 "markdwon syntax highlighting
-let g:vim_markdown_fenced_languages=['javascript','cpp','c++','c','php','go','bash','vim','shell','java','ruby','lua']
+let g:vim_markdown_fenced_languages=['javascript',
+            \'cpp',
+            \'c++',
+            \'c',
+            \'php',
+            \'go',
+            \'bash',
+            \'vim',
+            \'shell',
+            \'java',
+            \'ruby',
+            \'lua']
 if has("multi_byte")
 
 set encoding=utf-8
@@ -295,7 +306,7 @@ let g:easycomplete_diagnostics_enable = 1
 let g:easycomplete_signature_enable = 1
 let g:easycomplete_tabnine_enable = 1
 let g:easycomplete_cursor_word_hl = 1
-let g:easycomplete_scheme = "blue"
+"let g:easycomplete_scheme = "blue"
 let g:easycomplete_menu_skin = {
       \   "buf": {
       \      "kind":"羅",
